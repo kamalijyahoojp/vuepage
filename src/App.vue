@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
-//import { createApp } from 'vue';
-//import MyPage from './MyPage.vue';
 
-//function openMypage() {
-//  createApp(MyPage).mount('header');
-//}
+const product = ref(true);
+
+function switchMypage(sw: boolean) {
+  product.value = sw;
+}
 </script>
 
 <template>
-  <header>
+  <header v-if="product">
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
@@ -19,7 +20,7 @@ import TheWelcome from './components/TheWelcome.vue';
   </header>
 
   <main>
-    <TheWelcome />
+    <TheWelcome @mypage="switchMypage(false);" />
   </main>
 </template>
 
