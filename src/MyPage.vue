@@ -1,33 +1,19 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
 
-const pictures: Array<string> = [
-    "/photo/IMG_9691-2.JPG",
-    "/photo/IMG_9693-1.JPG",
-    "/photo/IMG_9694-1.JPG",
-    "/photo/IMG_9697-2.JPG",
-    "/photo/IMG_9699-1.JPG",
-    "/photo/IMG_9701-1.JPG",
-    "/photo/IMG_9703-1.JPG",
-    "/photo/IMG_9705-1.JPG",
-    "/photo/IMG_9707-1.JPG",
-    "/photo/IMG_9709-1.JPG",
-    "/photo/IMG_9710-1.JPG",
-    "/photo/IMG_9714-1.JPG"
-];
-const listData: Array<[string, string]> = [
-  ['全体写真', pictures[0] ],
-  ['1組', pictures[1] ],
-  ['2組', pictures[2] ],
-  ['3組', pictures[3] ],
-  ['4組', pictures[4] ],
-  ['5組', pictures[5] ],
-  ['6組', pictures[6] ],
-  ['7組', pictures[7] ],
-  ['Other1', pictures[8] ],
-  ['Other2', pictures[9] ],
-  ['Other3', pictures[10] ],
-  ['Other4', pictures[11] ],
+const listData = [
+  ['全体写真', new URL('./assets/photo/IMG_9691-2.JPG', import.meta.url).href ],
+  ['1組', new URL('./assets/photo/IMG_9693-1.JPG', import.meta.url).href ],
+  ['2組', new URL('./assets/photo/IMG_9694-1.JPG', import.meta.url).href ],
+  ['3組', new URL('./assets/photo/IMG_9697-2.JPG', import.meta.url).href ],
+  ['4組', new URL('./assets/photo/IMG_9699-1.JPG', import.meta.url).href ],
+  ['5組', new URL('./assets/photo/IMG_9701-1.JPG', import.meta.url).href ],
+  ['6組', new URL('./assets/photo/IMG_9703-1.JPG', import.meta.url).href ],
+  ['7組', new URL('./assets/photo/IMG_9705-1.JPG', import.meta.url).href ],
+  ['Other1', new URL('./assets/photo/IMG_9707-1.JPG', import.meta.url).href ],
+  ['Other2', new URL('./assets/photo/IMG_9709-1.JPG', import.meta.url).href ],
+  ['Other3', new URL('./assets/photo/IMG_9710-1.JPG', import.meta.url).href ],
+  ['Other4', new URL('./assets/photo/IMG_9714-1.JPG', import.meta.url).href ],
 ];
 const wk = reactive({
   picNo: -1 as number,
