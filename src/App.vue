@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, type Component } from 'vue';
 import Home from './Home.vue';
 import MyPage from './MyPage.vue';
 
-const routes: object = {
+const routes: Record<string, Component> = {
   '/': Home,
   '/mypage': MyPage
 }
