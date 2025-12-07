@@ -1,27 +1,28 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-import TheWelcome from './components/TheWelcome.vue';
+import { computed, ref } from 'vue';
+import Home from './Home.vue';
+import MyPage from './MyPage.vue';
 
-const product = ref(true);
-
-function switchMypage(sw: boolean) {
-  product.value = sw;
+const routes: object = {
+  '/': Home,
+  '/mypage': MyPage
 }
+
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  const path: string = currentPath.value.slice(1);
+  return routes[path || '/'] || Home
+})
+
 </script>
 
 <template>
-  <header v-if="product">
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="KamaliJ's Open Productions" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome @mypage="switchMypage(false);" />
-  </main>
+  <component :is="currentView" />
 </template>
 
 <style scoped>

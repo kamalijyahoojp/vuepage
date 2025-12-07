@@ -33,6 +33,6 @@ import SupportIcon from './icons/IconSupport.vue';
     <template #heading>Personal</template>
 
     My daily vlog and articles are available on
-    <button @click="$emit('mypage')">my page</button>
+    <a href="#/mypage">my page</a>
   </WelcomeItem>
 </template>
